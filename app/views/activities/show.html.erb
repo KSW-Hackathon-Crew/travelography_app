@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @activity.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @activity.category %>
+</p>
+
+<p>
+  <strong>Photo url:</strong>
+  <%= @activity.photo_url %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @activity.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @activity.longitude %>
+</p>
+
+<p>
+  <strong>Plan:</strong>
+  <%= @activity.plan %>
+</p>
+
+<%= link_to 'Edit', edit_activity_path(@activity) %> |
+<%= link_to 'Back', activities_path %>

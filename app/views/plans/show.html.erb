@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @plan.name %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @plan.location %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @plan.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @plan.longitude %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @plan.user %>
+</p>
+
+<%= link_to 'Edit', edit_plan_path(@plan) %> |
+<%= link_to 'Back', plans_path %>
