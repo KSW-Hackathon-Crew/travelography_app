@@ -1,0 +1,29 @@
+.top-bar{
+  height:60px;
+}
+
+#search{
+  height:45px;
+}
+
+#search-section{
+  display: inline-flex;
+}
+
+.contain-to-grid .top-bar{
+   margin-right: 0;
+   margin-left: 0;
+   max-width: 100%;
+}
+
+#current-location{
+  color: white;
+}
+
+#picture-box{
+  top:5px;
+}
+
+.button{
+
+}

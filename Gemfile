@@ -41,3 +41,5 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pry-rails', '~> 0.3.2'
 
 gem 'foundation-rails'
+
+gem 'httparty'
