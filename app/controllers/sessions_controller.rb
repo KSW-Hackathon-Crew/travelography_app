@@ -1,5 +1,23 @@
 class SessionsController < ApplicationController
 
+  def new
+  end
+
+  def create
+    user = User.find_by(email: params[:email])
+    if user && user.authenticate(params[:password])
+      log_in(user)
+      redirect_to(user_path(user))
+    else
+      flash[:error] = "Incorrect username or password."
+      redirect_to(login_path)
+    end
+  end
+
+  def destroy
+    log_out!
+  end
+
   def show
     location = URI.encode(params[:location])
     foursquare = HTTParty.get("https://api.foursquare.com/v2/venues/explore?near=#{location}&venuePhotos=1&oauth_token=CHO2KGDBYG5Y3ZWHEXQFL1WEMPZIQXL4RFTKWCK5Y54TEXEX&v=20120609")
@@ -11,11 +29,11 @@ class SessionsController < ApplicationController
       img_suff = fs["venue"]["photos"]["groups"][0]["items"][0]["suffix"]
       @activities << {
         name: fs["venue"]["name"],
-        category: fs["venue"]["categories"][0]["pluralName"], 
+        category: fs["venue"]["categories"][0]["pluralName"],
         photo_url: img_pre + '300x300' + img_suff,
         location: fs["venue"]["location"]["formattedAddress"][0] + "\n" + fs["venue"]["location"]["formattedAddress"][1],
         lat: fs["venue"]["location"]["lat"],
-        long: fs["venue"]["location"]["lng"], 
+        long: fs["venue"]["location"]["lng"],
         url: fs["venue"]["url"]
       }
 
@@ -31,7 +49,7 @@ class SessionsController < ApplicationController
             location: fs["venue"]["location"]["formattedAddress"][0] + "\n" + fs["venue"]["location"]["formattedAddress"][1],
             lat: fs["venue"]["location"]["lat"],
             long: fs["venue"]["location"]["lng"],
-            url: tip["url"]  
+            url: tip["url"]
           }
         end
       end
