@@ -28,7 +28,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
-    bcrypt (3.1.7)
+    bcrypt (3.1.9)
     builder (3.2.2)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -43,17 +43,9 @@ GEM
     foundation-rails (5.4.5.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-<<<<<<< HEAD
-=======
     geocoder (1.2.6)
-    graticule (2.5.0)
-      activesupport
-      i18n
-      json
-      nokogiri-happymapper (>= 0.5.9)
->>>>>>> 20eb061038b63c9ab8f0d46b3c5379de45f29c91
     hike (1.2.3)
-    httparty (0.13.1)
+    httparty (0.13.3)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     i18n (0.6.11)
@@ -97,7 +89,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
-    rdoc (4.1.2)
+    rdoc (4.2.0)
       json (~> 1.4)
     sass (3.2.19)
     sass-rails (4.0.5)
@@ -137,11 +129,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   coffee-rails (~> 4.0.0)
   foundation-rails
-<<<<<<< HEAD
-=======
   geocoder (~> 1.2.6)
-  graticule (~> 2.5.0)
->>>>>>> 20eb061038b63c9ab8f0d46b3c5379de45f29c91
   httparty
   jbuilder (~> 2.0)
   jquery-rails
