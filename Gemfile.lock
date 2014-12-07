@@ -137,11 +137,10 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   coffee-rails (~> 4.0.0)
   foundation-rails
-<<<<<<< HEAD
-=======
+
   geocoder (~> 1.2.6)
   graticule (~> 2.5.0)
->>>>>>> 20eb061038b63c9ab8f0d46b3c5379de45f29c91
+
   httparty
   jbuilder (~> 2.0)
   jquery-rails
