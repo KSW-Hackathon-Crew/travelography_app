@@ -13,11 +13,9 @@ Rails.application.routes.draw do
       get   "confirm_delete"
     end
 
-    resources :plans, only: [:create, :destroy] do
-      resources :activities, only: [:create, :destroy] do
-        resources :photos
-      end
-    end
+    resources :plans, only: [:create, :destroy]
+    resources :activities, only: [:create, :destroy]
+    resources :photos
   end
 
 
