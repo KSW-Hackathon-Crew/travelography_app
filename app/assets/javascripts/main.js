@@ -2,22 +2,16 @@ $( document ).ready(function() {
 
   markers = [];
   mapCreated = 0;
-  var latitude;
-  var longitude;
-  var information;
-  var mapOptions;
-  var map;
-  var info;
 
 
   // $('#map-container').hide();
 
-  $('#little-map').on('click', function(){
-    console.log('clicked');
+  // $('#little-map').on('click', function(){
+  //   console.log('clicked');
 
-    $('#photo-grid').hide()
-    $('#map-container').show();
-  });
+  //   $('#photo-grid').hide()
+  //   $('#map-container').show();
+  // });
 
   // $('#little-place').on('click', function(){
   //   $('#map-container').hide()
