@@ -4,7 +4,10 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    current_user = session[:user_id]
+    respond_to do |format|
+      format.json { render :json => current_user }
+    end
   end
 
   # GET /users/1

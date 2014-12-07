@@ -3,31 +3,29 @@
 <div class="page-header">
   <h1> Welcome to Triptography!</h1>
 </div>
-
-<div class="sign-in">
-  <h3>Search</h3>
-  <div class="search" style="width:25%;">
-    <%= form_tag(session_path) do %>
-      <%= label_tag(:search) %><br>
-      <%= text_field_tag(:search) %><br>
-      <%= submit_tag('submit') %><br>
-    <% end %><br>
+<main>
+  <div class="sign-in">
+    <h3>Search</h3>
+    <div class="search" style="width:25%;">
+      <input class="location" type="text" placeholder="Search Location">
+      <button class="search">Search</button>
+    </div>
+    <h3>Sign In</h3>
+    <div class="login" style="width:25%;">
+      <%= form_tag(session_path) do %>
+        <%= label_tag(:email) %><br>
+        <%= text_field_tag(:email) %><br>
+        <%= label_tag(:password) %><br>
+        <%= password_field_tag(:password) %><br>
+        <%= submit_tag('submit') %>
+      <% end %>
+      <p style="color: red"><%= flash[:error] %></p>
+      <p style="color: green;"><strong><%= flash[:notice] %></strong><p>
+    </div>
+    <br>
+    <div class="signup">
+      <h4><%= link_to('Sign up!', new_user_path) %></h4>
+    </div>
   </div>
-  <h3>Sign In</h3>
-  <div class="login" style="width:25%;">
-    <%= form_tag(session_path) do %>
-      <%= label_tag(:email) %><br>
-      <%= text_field_tag(:email) %><br>
-      <%= label_tag(:password) %><br>
-      <%= password_field_tag(:password) %><br>
-      <%= submit_tag('submit') %>
-    <% end %>
-    <p style="color: red"><%= flash[:error] %></p>
-    <p style="color: green;"><strong><%= flash[:notice] %></strong><p>
-  </div>
-  <br>
-  <div class="signup">
-    <h4><%= link_to('Sign up!', new_user_path) %></h4>
-  </div>
-</div>
+</main>
 </div>

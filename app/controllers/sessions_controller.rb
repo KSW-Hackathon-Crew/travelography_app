@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
 
   def show
-    foursquare = HTTParty.get('https://api.foursquare.com/v2/venues/explore?near=40.7,-74&venuePhotos=1&oauth_token=CHO2KGDBYG5Y3ZWHEXQFL1WEMPZIQXL4RFTKWCK5Y54TEXEX&v=20120609')
+    location = URI.encode(params[:location])
+    foursquare = HTTParty.get("https://api.foursquare.com/v2/venues/explore?near=#{location}&venuePhotos=1&oauth_token=CHO2KGDBYG5Y3ZWHEXQFL1WEMPZIQXL4RFTKWCK5Y54TEXEX&v=20120609")
 
     @activities = []
 
@@ -37,7 +38,7 @@ class SessionsController < ApplicationController
     end
 
     respond_to do |format|
-      format.json ( render json: @activities)
+      format.json { render :json => @activities }
     end
   end
 
