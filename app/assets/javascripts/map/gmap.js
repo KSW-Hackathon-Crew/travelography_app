@@ -1,59 +1,25 @@
-function createMap(latitude, longitude, information) {
-  mapOptions = {center: { lat: latitude, lng: longitude}, zoom: 8};
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-  info = createInfoWindow(information);
-  google.maps.event.addListener(marker, 'click', function(){
-    info.open(map, marker);
-  });
-};
-
-
-
-// function initialize() {
-//   var info = createInfoWindow("Congratulations!");
-//   google.maps.event.addListener(marker, 'click', function() {
-//     info.open(map,marker);
-//   });
-// }
-  // var myLatLong = new google.maps.LatLng(-34.397,150.644);
-  // google.maps.event.addDomListener(window, 'load', initialize);
-  // createMarker(myLatLong, map, "Test");
-
-var marker;
-function createMarker(lati,longi, map, title){
-  marker = new google.maps.Marker({
-    position: (lati,longi),
-    map: map,
-    title: title,
-  });
-  return marker;
-}
-
-function createImage(url){
-  var image = {
-    url: url,
-    // This marker is 32 pixels wide by 32 pixels tall.
-    size: new google.maps.Size(32, 32),
-    // The origin for this image is 0,0.
-    origin: new google.maps.Point(0,0),
-    // The anchor for this image is the base of the flagpole at 0,32.
-    anchor: new google.maps.Point(0, 32)
+function initialize(latitude, longitude, title) {
+  var myLatlng = new google.maps.LatLng(latitude,longitude);
+  var mapOptions = {
+    zoom: 20,
+    center: myLatlng
   };
-  return image;
-}
 
-function createCustomMarker(coords,map,title){
-  marker = new google.maps.Marker({
-    position: coords,
-    map: map,
-    title: title,
-    icon: createImage("/assets/icon.png")
-  });
-}
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-function createInfoWindow(text){
+  var contentString = title;
   var infowindow = new google.maps.InfoWindow({
-    content: text
+      content: contentString
   });
-  return infowindow;
+
+  var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: title
+  });
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map,marker);
+  });
 }
+
+
