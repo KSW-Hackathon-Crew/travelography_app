@@ -14,8 +14,8 @@
 </div>
 
 <ul class="small-block-grid-5">
-  <% @venue_images.each do |image| %>
-  <li><img src=<%= image %>></li>
+  <% @activities.each do |activity| %>
+  <li><img src=<%= activity[:photo_url] %>></li>
   <% end %>
 </ul>
 <div id="map-container">
