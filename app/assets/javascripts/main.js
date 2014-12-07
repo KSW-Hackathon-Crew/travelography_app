@@ -64,7 +64,7 @@ $( document ).ready(function() {
             $(grid).toggle();
             var close = document.createElement('button');
             close.setAttribute('class', 'close');
-            close.innerText = 'X';
+            close.innerText = '<';
             container.appendChild(close)
             var model = response[event.target.parentElement.id]
             var activity = document.createElement('div')
