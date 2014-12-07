@@ -1,5 +1,23 @@
-<p>Hello World</p>
+<div class="contain-to-grid sticky">
+  <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
+     <div id="picture-box" class="large-4 columns">
+        <img src="http://image.shutterstock.com/display_pic_with_logo/79044/124132720/stock-photo-paris-cityscape-taken-from-montmartre-124132720.jpg" width="50px">
+    </div>
+    <div id="current-location" class="large-4 columns">
+        <p>Your Current Location is... </P>
+    </div>
+    <div id="search-section" class="large-3 columns">
+        <input id="search" type="text" placeholder="Search Another Location" >
+        <a href="#" class="button">Search</a>
+    </div>
+  </nav>
+</div>
 
+<ul class="small-block-grid-5">
+  <% @venue_images.each do |image| %>
+  <li><img src=<%= image %>></li>
+  <% end %>
+</ul>
 <div id="map-container">
   <div id="map-canvas"></div>
 </div>
