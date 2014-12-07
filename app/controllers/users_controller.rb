@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate,            except: [:new, :create]
+  before_action :load_user,               except: [:index, :new, :create]
+  before_action :authorize_user,     only: :show
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.all.sort.reverse.reject {|user| user == current_user}
   end
 
   # GET /users/1
@@ -19,12 +22,14 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = User.find(params[:id])
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
+    @user.save
 
     respond_to do |format|
       if @user.save
@@ -69,6 +74,32 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :password_digest)
+      params.require(:user).permit(:name, :email, :dob, :password, :password_confirmation)
     end
+
+    def user_password_params
+    @user_password_params ||= params.require(:user).permit(
+      :old_password,
+      :password,
+      :password_confirmation
+    )
+  end
+
+  def load_user
+    @user = User.find_by(id: params[:id])
+    redirect_to root_path if !@user
+  end
+
+  def authorize_admin_only
+    unless current_user.is_admin?
+      redirect_to user_path(current_user)
+    end
+  end
+
+  def authorize_user
+    unless current_user == @user
+      redirect_to user_path(current_user)
+    end
+  end
+
 end

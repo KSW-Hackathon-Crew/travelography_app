@@ -12,7 +12,7 @@ Plan.destroy_all
 Activity.destroy_all
 Photo.destroy_all
 
-user1 = User.create(email: "theerickramer@gmail.com")
-user2 = User.create(email: "mariatschettino@gmail.com")
-user3 = User.create(email: "freejacque@gmail.com")
+user1 = User.create(email: "theerickramer@gmail.com", password: "pass")
+user2 = User.create(email: "mariatschettino@gmail.com", password: "pass")
+user3 = User.create(email: "freejacque@gmail.com", password: "pass")
 
