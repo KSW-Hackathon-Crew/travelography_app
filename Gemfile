@@ -43,4 +43,4 @@ gem 'foundation-rails'
 
 gem 'httparty'
 gem 'geocoder', '~> 1.2.6'
-
+gem 'rails_12factor', group: :production
