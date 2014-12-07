@@ -35,6 +35,7 @@ $( document ).ready(function() {
       url: '/session',
       data: { email: $('input.email').val(), password: $('input.password').val() }
     }).done(function(){
+      $('.login-btn').css('visibility', 'visible')
       $($('main').children()[0]).children()[5].remove()
       $($('main').children()[0]).children()[4].remove()
       $($('main').children()[0]).children()[3].remove()

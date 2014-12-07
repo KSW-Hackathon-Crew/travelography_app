@@ -34,11 +34,10 @@ class PhotosController < ApplicationController
   def update
     # photo = @photo.photo_url = params[:photo_url]
     @photo.update({photo_url: params[:photo_url]})
-    # image_from_web  = open(params[:photo_url]) {|f| f.read }
-    # file_name = params[:photo_url].split("/").pop()
-    # Dir.chdir("public")
-    # File.open(file_name, 'wb') {|f| f.write(image_from_web) }
-    # Dir.chdir("../")
+    image_from_web  = open(params[:photo_url]) {|f| f.read }
+    file_name = params[:photo_url].split("/").pop()
+    File.open(file_name, 'wb') {|f| f.write(image_from_web) }
+
 
      respond_to do |format|
       format.json { render :json => 'Photo Updated!'}
