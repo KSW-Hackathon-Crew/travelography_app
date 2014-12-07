@@ -43,6 +43,15 @@ GEM
     foundation-rails (5.4.5.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
+<<<<<<< HEAD
+=======
+    geocoder (1.2.6)
+    graticule (2.5.0)
+      activesupport
+      i18n
+      json
+      nokogiri-happymapper (>= 0.5.9)
+>>>>>>> 20eb061038b63c9ab8f0d46b3c5379de45f29c91
     hike (1.2.3)
     httparty (0.13.1)
       json (~> 1.8)
@@ -128,6 +137,11 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   coffee-rails (~> 4.0.0)
   foundation-rails
+<<<<<<< HEAD
+=======
+  geocoder (~> 1.2.6)
+  graticule (~> 2.5.0)
+>>>>>>> 20eb061038b63c9ab8f0d46b3c5379de45f29c91
   httparty
   jbuilder (~> 2.0)
   jquery-rails

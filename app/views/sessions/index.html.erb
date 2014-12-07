@@ -14,16 +14,12 @@
   </nav>
 </div>
 
-<div id="photo-grid">
-  <ul class="small-block-grid-5">
-    <% @venue_images.each do |image| %>
 
-    <li><img src=<%= image %>>
-    </li>
-    <% end %>
-  </ul>
-</div>
-
+<ul class="small-block-grid-5">
+  <% @activities.each do |activity| %>
+  <li><img src=<%= activity[:photo_url] %>></li>
+  <% end %>
+</ul>
 
 <div id="map-container">
   <div id="map-canvas"></div>
