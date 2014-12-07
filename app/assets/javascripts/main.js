@@ -13,12 +13,27 @@ $( document ).ready(function() {
     $('#photo-grid').show();
   });
 
-  $.ajax({
-    type: 'GET',
-    url: '/users'
-  }).done(function(data){
-    user = data
-  })
+  function current_user(){
+    $.ajax({
+      type: 'GET',
+      url: '/users'
+    }).done(function(data){
+      user = data
+    })
+  }
+
+  $('button.sign-in').on('click', function(){
+    $.ajax({
+      type: 'POST',
+      url: '/session',
+      data: { email: $('input.email').val(), password: $('input.password').val() }
+    }).done(function(){
+      $($('main').children()[0]).children()[5].remove()
+      $($('main').children()[0]).children()[4].remove()
+      $($('main').children()[0]).children()[3].remove()
+      $($('main').children()[0]).children()[2].remove()
+    });
+  });
 
   $('button.search').on('click', function(){
     var location = $('input.location').val();

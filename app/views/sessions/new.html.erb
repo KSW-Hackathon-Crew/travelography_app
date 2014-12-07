@@ -7,12 +7,15 @@
   <div class="sign-in">
     <h3>Search</h3>
     <div class="search">
-      <input class="location" type="text" placeholder="Search Location">
+      <input class="location" type="text" placeholder="Enter City">
       <button class="search">Search</button>
     </div>
     <h3>Sign In</h3>
     <div class="login">
-      <%= form_tag(session_path) do %>
+      <input class="email" type="text" placeholder="Email">
+      <input class="password" type="password" placeholder="Password">
+      <button class="sign-in">Sign In</button>
+     <!--  <%= form_tag(session_path) do %>
         <%= label_tag(:email) %><br>
         <%= text_field_tag(:email) %><br>
         <%= label_tag(:password) %><br>
@@ -20,7 +23,7 @@
         <%= submit_tag('submit') %>
       <% end %>
       <p style="color: red"><%= flash[:error] %></p>
-      <p style="color: green;"><strong><%= flash[:notice] %></strong><p>
+      <p style="color: green;"><strong><%= flash[:notice] %></strong><p> -->
     </div>
     <br>
     <div class="signup">
