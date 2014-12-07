@@ -52,7 +52,8 @@ $( document ).ready(function() {
       data: { location: location }
     }).done(function(response){
         var main = document.querySelector('main');
-        $('main').empty()
+        $('main').empty();
+        $('body').css('background', 'white')
         var grid = document.createElement('div');
         grid.setAttribute('id', "photo-grid");
         main.appendChild(grid);
