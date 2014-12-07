@@ -5,6 +5,11 @@
   <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
          <ul>
           <% if session[:user_id] %>
+            <%= link_to 'TRIPOGRAPHY', user_path(session[:user_id]), class: 'logo' %>
+          <% else %>
+            <%= link_to 'TRIPOGRAPHY', root_path, class: 'logo' %>
+          <% end %>
+          <% if session[:user_id] %>
             <%= link_to  '<i class="fa fa-user"></i> Logout'.html_safe , session_path, method: :delete, class:'login-btn' %>
           <% else %>
             <%= link_to '<i class="fa fa-user"></i> Log In'.html_safe, login_path, class:'login-btn' %></li><br/>
