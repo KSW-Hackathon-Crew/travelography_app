@@ -11,13 +11,12 @@ function initialize() {
   google.maps.event.addDomListener(window, 'load', initialize);
   createMarker(myLatLong, map, "Test");
 
-
 var marker;
 function createMarker(coords, map, title){
   marker = new google.maps.Marker({
     position: coords,
     map: map,
-    title: title
+    title: title,
   });
 }
 
