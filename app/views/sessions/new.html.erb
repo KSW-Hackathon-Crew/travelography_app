@@ -6,12 +6,12 @@
 <main>
   <div class="sign-in">
     <h3>Search</h3>
-    <div class="search" style="width:25%;">
+    <div class="search">
       <input class="location" type="text" placeholder="Search Location">
       <button class="search">Search</button>
     </div>
     <h3>Sign In</h3>
-    <div class="login" style="width:25%;">
+    <div class="login">
       <%= form_tag(session_path) do %>
         <%= label_tag(:email) %><br>
         <%= text_field_tag(:email) %><br>

@@ -44,7 +44,13 @@ $( document ).ready(function() {
           img.setAttribute('src', response[i]["photo_url"]);
           li.appendChild(img);
           li.addEventListener('click', function(event){
+            var container = document.createElement('div');
+            container.setAttribute('class', 'container');
             $(grid).toggle();
+            var close = document.createElement('button');
+            close.setAttribute('class', 'close');
+            close.innerText = 'X';
+            container.appendChild(close)
             var model = response[event.target.parentElement.id]
             var activity = document.createElement('div')
             activity.setAttribute('class', 'activity')
@@ -71,6 +77,7 @@ $( document ).ready(function() {
             activity.appendChild(url);
             var add = document.createElement('button');
             add.innerText = 'Add to Map';
+            
             add.addEventListener('click', function(){
               $.ajax({
                 type: 'POST',
@@ -79,7 +86,13 @@ $( document ).ready(function() {
               });
             });
             activity.appendChild(add);
-            main.appendChild(activity);
+            container.appendChild(activity);
+            $('main').append(container);
+
+            close.addEventListener('click', function(){
+            $('#photo-grid').toggle()
+            $('.container').remove()
+          })
           });
           ul.appendChild(li);
       }
