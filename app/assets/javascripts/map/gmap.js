@@ -1,15 +1,22 @@
-  var mapOptions = {center: { lat: -34.397, lng: 150.644}, zoom: 8};
-  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-function initialize() {
-  var info = createInfoWindow("Congratulations!");
-  google.maps.event.addListener(marker, 'click', function() {
-    info.open(map,marker);
+function createMap(latitude, longitude, info) {
+  var mapOptions = {center: { lat: latitude, lng: longitude}, zoom: 8};
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  var info = createInfoWindow(info);
+  google.maps.event.addListener(marker, 'click', function(){
+    info.open(map, marker);
   });
-}
-  var myLatLong = new google.maps.LatLng(-34.397,150.644);
-  google.maps.event.addDomListener(window, 'load', initialize);
-  createMarker(myLatLong, map, "Test");
+};
+
+// function initialize() {
+//   var info = createInfoWindow("Congratulations!");
+//   google.maps.event.addListener(marker, 'click', function() {
+//     info.open(map,marker);
+//   });
+// }
+  // var myLatLong = new google.maps.LatLng(-34.397,150.644);
+  // google.maps.event.addDomListener(window, 'load', initialize);
+  // createMarker(myLatLong, map, "Test");
 
 var marker;
 function createMarker(coords, map, title){

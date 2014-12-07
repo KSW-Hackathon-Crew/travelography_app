@@ -25,9 +25,10 @@ class ActivitiesController < ApplicationController
   # POST /activities.json
   def create
     binding.pry
-
+    @activity = Activity.new(activity_params)
+    @activity.save
     respond_to do |format|
-        format.json { render json: 'Activity Saved' }
+        format.json { render json: @activity }
     end
   end
 
@@ -63,6 +64,6 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:name, :category, :photo_url, :latitude, :longitude, :plan_id)
+      params.require(:activity).permit(:name, :category, :photo_url, :lat, :long, :plan_id)
     end
 end
