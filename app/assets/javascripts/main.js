@@ -4,6 +4,7 @@ $( document ).ready(function() {
 
   $('#little-map').on('click', function(){
     console.log('clicked');
+
     $('#photo-grid').hide()
     $('#map-container').show();
   });
@@ -21,6 +22,8 @@ $( document ).ready(function() {
       user = data
     })
   }
+
+  current_user()
 
   $('button.sign-in').on('click', function(){
     $.ajax({
@@ -92,7 +95,7 @@ $( document ).ready(function() {
             activity.appendChild(url);
             var add = document.createElement('button');
             add.innerText = 'Add to Map';
-            
+
             add.addEventListener('click', function(){
               $.ajax({
                 type: 'POST',

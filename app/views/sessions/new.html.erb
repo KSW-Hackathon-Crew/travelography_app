@@ -1,6 +1,26 @@
 
 <div id="splash">
 <div class="page-header">
+  <div class="contain-to-grid sticky">
+  <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
+         <ul>
+          <% if session[:user_id] %>
+            <%= link_to  '<i class="fa fa-user"></i> Logout'.html_safe , session_path, method: :delete, class:'login-btn' %>
+          <% else %>
+            <%= link_to '<i class="fa fa-user"></i> Log In'.html_safe, login_path, class:'login-btn' %></li><br/>
+          <% end %>
+        </ul>
+   <!--   <div id="picture-box" class="large-4 columns">
+        <img id="little-map" src="https://www.mailinglists.com/sites/default/files/GoogleMap2_small.gif" width="50px">
+    </div>
+
+    <div id="search-section" class="large-3 columns">
+        <input id="search" type="text" placeholder="Search Another Location" >
+        <a href="#" class="button">Search</a>
+    </div> -->
+
+  </nav>
+</div>
   <h1> Welcome to Triptography!</h1>
 </div>
 <main>
@@ -30,4 +50,7 @@
       <h4><%= link_to('Sign up!', new_user_path) %></h4>
     </div>
 </main>
+    <div id="map-container">
+      <div id="map-canvas"></div>
+    </div>
 </div>
