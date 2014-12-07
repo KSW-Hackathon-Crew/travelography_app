@@ -1,4 +1,3 @@
-
 function createMap(latitude, longitude, information) {
   mapOptions = {center: { lat: latitude, lng: longitude}, zoom: 8};
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
