@@ -108,7 +108,6 @@ $( document ).ready(function() {
                 url: '/activities',
                 data: { activity: model }
               }).done(function(data){
-                if (mapCreated == 0){
                   picLat = parseFloat(data.lat);
                   picLong = parseFloat(data.long);
                   title = data.name;
@@ -124,10 +123,11 @@ $( document ).ready(function() {
                     };
                     var logLocations = locations.push(locationData);
                   };
-                  mapCreated = 1;
-                } else {
-                  console.log("error");
-                }
+                // if (mapCreated == 0){
+                //   mapCreated = 1;
+                // } else {
+
+                // }
               });
             });
             activity.appendChild(add);
