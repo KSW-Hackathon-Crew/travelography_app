@@ -6,14 +6,16 @@
       <button class="search">Search</button>
     </div></br>
   </div> -->
+<script type="text/javascript" src="http://feather.aviary.com/js/feather.js"></script>
 
 <input type="filepicker" data-fp-apikey="AmUMZ0bx9Qneg5VDmXF8zz" data-fp-mimetypes="*/*" data-fp-container="modal" data-fp-services="COMPUTER,FACEBOOK,FLICKR,INSTAGRAM,WEBCAM,VIDEO" onchange="getUrl(event.fpfile.url)">
 <ul class="photos">
 	<% if @photos %>
 		<% @photos.each do |photo| %>
-			<li><img src="<%= photo.photo_url %>"></li>
-		<% end %>
-	<% end %>	
+			<li><img id='<%= photo.id %>' src="<%= photo.photo_url %>" width="500px"></li>
+      <p><input type='image' value='Edit photo' onclick="return launchEditor('<%= photo.id %>', '<%= photo.photo_url %>');" /></p>
+    <% end %>
+	<% end %>
 </ul>
 
 <script>
@@ -26,4 +28,39 @@
 
 		$('ul.photos').append($('<li><img src=\"' + url + '\"></li>'))
 	}
+
+
+   var featherEditor = new Aviary.Feather({
+       apiKey: 'b39635da8fd17755',
+       apiVersion: 3,
+       theme: 'light', // Check out our new 'light' and 'dark' themes!
+       tools: ['enhance', 'crop', 'effects', 'warmth', 'brightness', 'contrast', 'saturation', 'colorsplash', 'text'],
+       appendTo: '',
+       onSave: function(imageID, newURL) {
+           var img = document.getElementById(imageID);
+           img.src = newURL;
+           console.log(imageID);
+
+           $.ajax({
+            type:'PUT',
+            url:'/users/' + user + '/photos/' + imageID,
+            data: { photo_url: newURL }
+           }).done(function(data){
+            console.log(data);
+           })
+       },
+       onError: function(errorObj) {
+           alert(errorObj.message);
+       }
+   });
+   function launchEditor(id, src) {
+       featherEditor.launch({
+           image: id,
+           url: src
+       });
+      return false;
+   }
 </script>
+
+
+

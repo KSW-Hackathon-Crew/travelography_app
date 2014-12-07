@@ -32,14 +32,16 @@ class PhotosController < ApplicationController
   # PATCH/PUT /photos/1
   # PATCH/PUT /photos/1.json
   def update
-    respond_to do |format|
-      if @photo.update(photo_params)
-        format.html { redirect_to @photo, notice: 'Photo was successfully updated.' }
-        format.json { render :show, status: :ok, location: @photo }
-      else
-        format.html { render :edit }
-        format.json { render json: @photo.errors, status: :unprocessable_entity }
-      end
+    # photo = @photo.photo_url = params[:photo_url]
+    @photo.update({photo_url: params[:photo_url]})
+    # image_from_web  = open(params[:photo_url]) {|f| f.read }
+    # file_name = params[:photo_url].split("/").pop()
+    # Dir.chdir("public")
+    # File.open(file_name, 'wb') {|f| f.write(image_from_web) }
+    # Dir.chdir("../")
+
+     respond_to do |format|
+      format.json { render :json => 'Photo Updated!'}
     end
   end
 
