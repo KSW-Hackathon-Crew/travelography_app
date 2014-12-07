@@ -107,9 +107,11 @@ $( document ).ready(function() {
               }).done(function(data){
                 if (mapCreated == 0){
                   console.log(data);
-                  var latitude = activity.lat;
-                  var longitude = activity.long;
+                  var latitude = parseFloat(data.lat);
+                  var longitude = parseFloat(data.long);
+                  var info = data.photo_url;
                   createMap(latitude, longitude, info);
+                  mapCreated = 1;
                 } else {
                   console.log("error");
                 }
