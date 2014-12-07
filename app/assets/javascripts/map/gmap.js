@@ -1,12 +1,14 @@
 
-function createMap(latitude, longitude, info) {
-  var mapOptions = {center: { lat: latitude, lng: longitude}, zoom: 8};
-  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-  var info = createInfoWindow(info);
+function createMap(latitude, longitude, information) {
+  mapOptions = {center: { lat: latitude, lng: longitude}, zoom: 8};
+  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  info = createInfoWindow(information);
   google.maps.event.addListener(marker, 'click', function(){
     info.open(map, marker);
   });
 };
+
+
 
 // function initialize() {
 //   var info = createInfoWindow("Congratulations!");
@@ -19,12 +21,13 @@ function createMap(latitude, longitude, info) {
   // createMarker(myLatLong, map, "Test");
 
 var marker;
-function createMarker(coords, map, title){
+function createMarker(lati,longi, map, title){
   marker = new google.maps.Marker({
-    position: coords,
+    position: (lati,longi),
     map: map,
     title: title,
   });
+  return marker;
 }
 
 function createImage(url){

@@ -2,8 +2,15 @@ $( document ).ready(function() {
 
   markers = [];
   mapCreated = 0;
+  var latitude;
+  var longitude;
+  var information;
+  var mapOptions;
+  var map;
+  var info;
 
-  $('#map-container').hide();
+
+  // $('#map-container').hide();
 
   $('#little-map').on('click', function(){
     console.log('clicked');
@@ -12,10 +19,10 @@ $( document ).ready(function() {
     $('#map-container').show();
   });
 
-  $('#little-place').on('click', function(){
-    $('#map-container').hide()
-    $('#photo-grid').show();
-  });
+  // $('#little-place').on('click', function(){
+  //   $('#map-container').hide()
+  //   $('#photo-grid').show();
+  // });
 
   function current_user(){
     $.ajax({
@@ -107,10 +114,15 @@ $( document ).ready(function() {
               }).done(function(data){
                 if (mapCreated == 0){
                   console.log(data);
-                  var latitude = parseFloat(data.lat);
-                  var longitude = parseFloat(data.long);
-                  var info = data.photo_url;
-                  createMap(latitude, longitude, info);
+                  var lati = parseFloat(data.lat);
+                  var longi = parseFloat(data.long);
+                  var inform = data.photo_url;
+                  var title = data.name;
+                  createMap(lati, longi, inform);
+                  createMarker(lati, longi, map, title);
+                  google.maps.event.addListener(marker, 'click', function(){
+                    info.open(map, marker);
+                  });
                   mapCreated = 1;
                 } else {
                   console.log("error");
