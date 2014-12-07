@@ -1,41 +1,17 @@
 
 <div id="splash">
 <div class="page-header">
-  <div class="contain-to-grid sticky">
-  <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
-         <ul>
-          <% if session[:user_id] %>
-            <%= link_to 'TRIPOGRAPHY', user_path(session[:user_id]), class: 'logo' %>
-          <% else %>
-            <%= link_to 'TRIPOGRAPHY', root_path, class: 'logo' %>
-          <% end %>
-          <% if session[:user_id] %>
-            <%= link_to  '<i class="fa fa-user"></i> Logout'.html_safe , session_path, method: :delete, class:'login-btn' %>
-          <% else %>
-            <%= link_to '<i class="fa fa-user"></i> Log In'.html_safe, login_path, class:'login-btn' %></li><br/>
-          <% end %>
-        </ul>
-   <!--   <div id="picture-box" class="large-4 columns">
-        <img id="little-map" src="https://www.mailinglists.com/sites/default/files/GoogleMap2_small.gif" width="50px">
-    </div>
 
-    <div id="search-section" class="large-3 columns">
-        <input id="search" type="text" placeholder="Search Another Location" >
-        <a href="#" class="button">Search</a>
-    </div> -->
-
-  </nav>
-</div>
-  <h1> Welcome to Triptography!</h1>
+  <!-- <h1> Welcome to Triptography!</h1> -->
 </div>
 <main>
-  <div class="sign-in">
+  <div id="sign-in">
     <h3>Search</h3>
     <div class="search">
       <input class="location" type="text" placeholder="Enter City">
       <button class="search">Search</button>
-    </div>
-    <h3>Sign In</h3>
+    </div></br>
+  <!--   <h3>Sign In</h3> -->
     <div class="login">
       <input class="email" type="text" placeholder="Email">
       <input class="password" type="password" placeholder="Password">
