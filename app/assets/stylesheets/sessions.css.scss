@@ -27,3 +27,16 @@
 .button{
 
 }
+
+.overlay{
+  width: 279px;
+  height: 279px;
+  background-color: black;
+  opacity: 0;
+}
+
+img:hover .overlay{
+  opacity: .4;
+}
+
+
