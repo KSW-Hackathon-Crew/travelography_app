@@ -21,7 +21,7 @@
           <li>
             <%= link_to  '<i class="fa fa-user"></i> Logout'.html_safe , session_path, method: :delete, class:'login-btn' %>
           </li>
-          <% session[:user_id] %>
+          <% if session[:user_id] %>
           <li>
             <%= link_to  'My Photos'.html_safe , user_path(session[:user_id]) %>
           </li>
