@@ -24,7 +24,7 @@ class ActivitiesController < ApplicationController
   # POST /activities
   # POST /activities.json
   def create
-    binding.pry
+    # binding.pry
     @activity = Activity.new(activity_params)
     @activity.save
     respond_to do |format|
