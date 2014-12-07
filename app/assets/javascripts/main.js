@@ -1,5 +1,8 @@
 $( document ).ready(function() {
 
+  markers = [];
+  mapCreated = 0;
+
   $('#map-container').hide();
 
   $('#little-map').on('click', function(){
@@ -92,12 +95,21 @@ $( document ).ready(function() {
             activity.appendChild(url);
             var add = document.createElement('button');
             add.innerText = 'Add to Map';
-            
+
             add.addEventListener('click', function(){
               $.ajax({
                 type: 'POST',
                 url: '/activities',
                 data: { activity: model }
+              }).done(function(data){
+                if (mapCreated == 0){
+                  console.log(data);
+                  var latitude = activity.lat;
+                  var longitude = activity.long;
+                  createMap(latitude, longitude, info);
+                } else {
+                  console.log("error");
+                }
               });
             });
             activity.appendChild(add);

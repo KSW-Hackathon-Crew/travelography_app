@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "/login" => "sessions#new"
 
   resource :session, only: [:create, :destroy, :show]
-
+  resources :activities, only: [:create, :destroy]
   resources :users do
     member do
       get   "password"
@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     end
 
     resources :plans, only: [:create, :destroy]
-    resources :activities, only: [:create, :destroy]
     resources :photos
   end
 
