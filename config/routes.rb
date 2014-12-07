@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get "/login" => "session#new"
 
-  resource :session, only: [:new, :create, :destroy, :show]
+  resource :session, only: [:create, :destroy, :show]
 
   resources :users do
     member do
