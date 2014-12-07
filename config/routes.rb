@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  get "/login" => "sessions#new"
+  get "/login" => "session#new"
 
-  resource :session, only: [:create, :destroy, :show]
+  resource :session, only: [:new, :create, :destroy, :show]
 
   resources :users do
     member do
