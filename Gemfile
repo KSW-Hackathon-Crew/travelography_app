@@ -42,4 +42,5 @@ gem 'pry-rails', '~> 0.3.2'
 gem 'foundation-rails'
 gem 'graticule', '~> 2.5.0'
 gem 'httparty'
+gem 'geocoder', '~> 1.2.6'
 
