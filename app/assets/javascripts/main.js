@@ -2,6 +2,7 @@ $( document ).ready(function() {
 
   markers = [];
   mapCreated = 0;
+  locations = [];
 
 
   // $('#map-container').hide();
@@ -107,16 +108,21 @@ $( document ).ready(function() {
                 data: { activity: model }
               }).done(function(data){
                 if (mapCreated == 0){
-                  console.log(data);
-                  var lati = parseFloat(data.lat);
-                  var longi = parseFloat(data.long);
-                  var inform = data.photo_url;
-                  var title = data.name;
-                  createMap(lati, longi, inform);
-                  createMarker(lati, longi, map, title);
-                  google.maps.event.addListener(marker, 'click', function(){
-                    info.open(map, marker);
-                  });
+                  picLat = parseFloat(data.lat);
+                  picLong = parseFloat(data.long);
+                  title = data.name;
+                  photo = data.photo_url;
+                  initialize(picLat, picLong, title);
+                  for (var i=0, len = markers.length; i < len; i++){
+                    console.log(data);
+                    var locationData = {
+                      lat: picLat,
+                      long: picLong,
+                      title: title,
+                      photo: data.photo_url
+                    };
+                    var logLocations = locations.push(locationData);
+                  };
                   mapCreated = 1;
                 } else {
                   console.log("error");
