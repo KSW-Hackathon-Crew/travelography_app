@@ -4,7 +4,6 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
-    @photos = Photo.all
   end
 
   # GET /photos/1
@@ -24,16 +23,9 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
-    @photo = Photo.new(photo_params)
-
+    Photo.create({photo_url: params[:photo_url], user_id: session[:user_id]})
     respond_to do |format|
-      if @photo.save
-        format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
-        format.json { render :show, status: :created, location: @photo }
-      else
-        format.html { render :new }
-        format.json { render json: @photo.errors, status: :unprocessable_entity }
-      end
+      format.json { render :json => 'Photo Saved!'}
     end
   end
 

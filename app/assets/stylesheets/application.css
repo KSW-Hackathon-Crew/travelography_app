@@ -53,3 +53,7 @@ body {
 .signup {
   text-align: center;
 }
+
+.photos {
+  list-style: none;
+}

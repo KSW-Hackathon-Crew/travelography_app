@@ -1,8 +1,29 @@
 
-  <div id="sign-in">
+ <!--  <div id="sign-in">
       <h1>My Journeys</h1>
       <div class="search">
       <input class="location" type="text" placeholder="Enter City">
       <button class="search">Search</button>
     </div></br>
-  </div>
+  </div> -->
+
+<input type="filepicker" data-fp-apikey="AmUMZ0bx9Qneg5VDmXF8zz" data-fp-mimetypes="*/*" data-fp-container="modal" data-fp-services="COMPUTER,FACEBOOK,FLICKR,INSTAGRAM,WEBCAM,VIDEO" onchange="getUrl(event.fpfile.url)">
+<ul class="photos">
+	<% if @photos %>
+		<% @photos.each do |photo| %>
+			<li><img src="<%= photo.photo_url %>"></li>
+		<% end %>
+	<% end %>	
+</ul>
+
+<script>
+	function getUrl(url){
+		$.ajax({
+			type: 'POST',
+			url: '/users/' + user + '/photos',
+			data: { photo_url: url }
+		});
+
+		$('ul.photos').append($('<li><img src=\"' + url + '\"></li>'))
+	}
+</script>
