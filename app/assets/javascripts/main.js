@@ -5,7 +5,7 @@ $( document ).ready(function() {
   locations = [];
 
 
-  // $('#map-container').hide();
+  $('#map-container').hide();
 
   // $('#little-map').on('click', function(){
   //   console.log('clicked');
